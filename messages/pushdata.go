@@ -28,24 +28,19 @@ func (message *PushDataMessage) MessageId() uint8 {
 
 func (message *PushDataMessage) ToBytes() ([]byte, error) {
 
-	bodyBytes, err := message.Body.ToBytes()
+	bodyBytes, err := message.Body.toBytes()
 	if err != nil {
 		return []byte{}, fmt.Errorf("unable to convert push data body to bytes: %s", err.Error())
 	}
 
-	tlv := Tlv{
-		MessageType: message.MessageId(),
-		Version:     alfredVersion,
-		Length:      uint16(len(bodyBytes)),
-	}
-
-	headerBytes, err := tlv.ToBytes()
+	message.Header.Length = uint16(len(bodyBytes))
+	headerBytes, err := message.Header.ToBytes()
 
 	return append(headerBytes, bodyBytes...), nil
 
 }
 
-func (message *PushDataBody) ToBytes() ([]byte, error) {
+func (message *PushDataBody) toBytes() ([]byte, error) {
 
 	buf := &bytes.Buffer{}
 
