@@ -52,6 +52,7 @@ func Test_ShouldBeAbleToSendTestPayloadToSocket(t *testing.T) {
 
 			conn2.Close()
 			ln.Close()
+			break
 		}
 	}()
 
