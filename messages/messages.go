@@ -6,11 +6,6 @@ const alfredVersion uint8 = 0
 
 type MessageType int
 
-type AlfredRequestBody struct {
-	Type          uint8
-	TransactionId uint16
-}
-
 type AlfredStatusBody struct {
 	Type            uint16
 	NumberOfPackets uint16
