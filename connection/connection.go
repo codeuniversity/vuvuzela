@@ -2,7 +2,7 @@ package connection
 
 import (
 	"fmt"
-	"github.com/lennartschoch/vuvuzela/messages"
+	"github.com/codeuniversity/vuvuzela/messages"
 	"net"
 )
 

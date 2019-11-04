@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/lennartschoch/vuvuzela/connection"
+	"github.com/codeuniversity/vuvuzela/connection"
 	"os"
 )
 
